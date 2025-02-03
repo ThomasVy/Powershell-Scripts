@@ -39,6 +39,7 @@ if (Test-Path($ChocolateyProfile)) {
 }
 
 del alias:cat -Force
+del alias:ls -Force
 
 Set-Alias -Name cat -Value bat
 Set-Alias -Name ls -Value "eza"
