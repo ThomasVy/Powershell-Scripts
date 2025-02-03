@@ -21,3 +21,6 @@ winget install clementtsang.bottom
 
 Write-Host -ForegroundColor Blue install better fuzzy finder (fzf)
 winget install fzf
+
+Write-Host -ForegroundColor Blue install PSFzf (fzf for powershell)
+Install-Module -Name PSFzf -Force

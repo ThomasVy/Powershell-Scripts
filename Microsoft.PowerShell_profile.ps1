@@ -50,5 +50,5 @@ Set-Alias -Name ll -Value eza-ll
 function eza-tree {
     eza --tree
 }
-Set-Alias -Name tree -Value eza-tree
-
+Set-Alias -Name tree -Value eza-tre
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
