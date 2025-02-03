@@ -1,23 +1,23 @@
-#install better ls (eza)
+Write-Host -ForegroundColor Blue install better ls (eza)
 winget install eza-community.eza
 
-#install better cat (bat) 
+Write-Host -ForegroundColor Blue install better cat (bat) 
 winget install sharkdp.bat
 
-#install better grep (ripgrep)
+Write-Host -ForegroundColor Blue install better grep (ripgrep)
 winget install burntsushi.ripgrep
 
-#install better find (fd)
+Write-Host -ForegroundColor Blue install better find (fd)
 winget install sharkdp.fd
 
-#install neovim
+Write-Host -ForegroundColor Blue install neovim
 winget install neovim.neovim
 
-#install better cd (zoxide)
+Write-Host -ForegroundColor Blue install better cd (zoxide)
 winget install ajeetdsouza.zoxide
 
-#install better htop (bottom)
+Write-Host -ForegroundColor Blue install better htop (bottom)
 winget install clementtsang.bottom
 
-#install better fuzzy finder (fzf)
+Write-Host -ForegroundColor Blue install better fuzzy finder (fzf)
 winget install fzf
