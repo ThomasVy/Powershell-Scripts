@@ -24,3 +24,10 @@ winget install fzf
 
 Write-Host -ForegroundColor Blue install PSFzf (fzf for powershell)
 Install-Module -Name PSFzf -Force
+
+Write-Host -ForegroundColor Blue install OhMyPosh
+winget install JanDeDobbeleer.OhMyPosh -s winget
+
+oh-my-posh font install meslo
+Write-Host -ForegroundColor Blue "Please set the terminal font to MesloLGS NF"
+

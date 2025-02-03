@@ -52,3 +52,4 @@ function eza-tree {
 }
 Set-Alias -Name tree -Value eza-tre
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+oh-my-posh init pwsh | Invoke-Expression
