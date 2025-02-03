@@ -42,7 +42,13 @@ del alias:cat -Force
 del alias:ls -Force
 
 Set-Alias -Name cat -Value bat
-Set-Alias -Name ls -Value "eza"
-Set-Alias -Name ll -Value "eza -alh"
-Set-Alias -Name tree -Value "eza --tree"
+Set-Alias -Name ls -Value eza
+function eza-ll {
+    eza -alh
+}
+Set-Alias -Name ll -Value eza-ll
+function eza-tree {
+    eza --tree
+}
+Set-Alias -Name tree -Value eza-tree
 
