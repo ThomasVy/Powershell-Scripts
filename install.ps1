@@ -25,6 +25,8 @@ winget install fzf
 Write-Host -ForegroundColor Blue install PSFzf (fzf for powershell)
 Install-Module -Name PSFzf -Force
 
+Install-Module PsReadLine -Force
+
 Write-Host -ForegroundColor Blue install OhMyPosh
 winget install JanDeDobbeleer.OhMyPosh -s winget
 
