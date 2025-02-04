@@ -63,11 +63,13 @@ del alias:ls -Force
 Set-Alias -Name cat -Value bat
 Set-Alias -Name ls -Value eza
 function eza-ll {
-    eza -alh
+    param($args)
+    eza -alh $args
 }
 Set-Alias -Name ll -Value eza-ll
 function eza-tree {
-    eza --tree
+    param($args)
+    eza --tree $args
 }
 Set-Alias -Name tree -Value eza-tree
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
