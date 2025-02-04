@@ -13,7 +13,7 @@ Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 Set-PSReadLineOption -ShowToolTips
-Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionSource History -ErrorAction SilentlyContinu
 
 Set-PSReadLineKeyHandler -Chord "Ctrl+ " -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
