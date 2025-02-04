@@ -1,3 +1,23 @@
+oh-my-posh init pwsh --config "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/amro.omp.json" | Invoke-Expression
+
+#auto Autocompleteion
+Import-Module PSReadLine
+
+Set-PSReadLineOption -EditMode Emacs
+# Shows navigable menu of all options when hitting Tab
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
+# Autocompleteion for Arrow keys
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd
+Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+Set-PSReadLineOption -ShowToolTips
+Set-PSReadLineOption -PredictionSource History
+
+Set-PSReadLineKeyHandler -Chord "Ctrl+ " -Function AcceptSuggestion
+Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
+
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
@@ -53,4 +73,3 @@ function eza-tree {
 Set-Alias -Name tree -Value eza-tre
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
-oh-my-posh init pwsh --config "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/amro.omp.json" | Invoke-Expression
