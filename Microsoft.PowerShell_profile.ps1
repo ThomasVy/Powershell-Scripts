@@ -19,7 +19,6 @@ Set-PSReadLineKeyHandler -Chord "Ctrl+ " -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
 
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 function Invoke-AmpRepositorySync {
     param (
@@ -70,6 +69,6 @@ Set-Alias -Name ll -Value eza-ll
 function eza-tree {
     eza --tree
 }
-Set-Alias -Name tree -Value eza-tre
+Set-Alias -Name tree -Value eza-tree
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
