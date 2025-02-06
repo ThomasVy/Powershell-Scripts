@@ -83,3 +83,8 @@ function eza-tree {
 Set-Alias -Name tree -Value eza-tree
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
+function admin-power { 
+    Start-Process -Verb RunAs wt.exe
+}
+Set-Alias -Name admin -Value admin-power
+
