@@ -87,4 +87,8 @@ function admin-power {
     Start-Process -Verb RunAs wt.exe
 }
 Set-Alias -Name admin -Value admin-power
-
+function copy-current-directory {
+    (pwd).Path | Set-Clipboard
+    Write-Host "Copied current directory to clipboard"
+}
+Set-Alias -Name cop -Value copy-current-directory
