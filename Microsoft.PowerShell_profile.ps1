@@ -92,3 +92,5 @@ function copy-current-directory {
     Write-Host "Copied current directory to clipboard"
 }
 Set-Alias -Name cop -Value copy-current-directory
+
+Set-Alias -Name vim -Value nvim
