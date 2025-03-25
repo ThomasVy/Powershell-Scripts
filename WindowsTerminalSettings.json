@@ -9,18 +9,15 @@
                 "action": "copy",
                 "singleLine": false
             },
-            "id": "User.copy.644BA8F2",
-            "keys": "ctrl+c"
+            "id": "User.copy.644BA8F2"
         },
         {
             "command": "paste",
-            "id": "User.paste",
-            "keys": "ctrl+v"
+            "id": "User.paste"
         },
         {
             "command": "find",
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
+            "id": "User.find"
         },
         {
             "command": 
@@ -29,13 +26,31 @@
                 "split": "auto",
                 "splitMode": "duplicate"
             },
-            "id": "User.splitPane.A6751878",
-            "keys": "alt+shift+d"
+            "id": "User.splitPane.A6751878"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "defaultProfile": "{28320cee-08d4-5a4d-a697-64df76593dfd}",
+    "keybindings": 
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        }
+    ],
     "newTabMenu": 
     [
         {
@@ -46,10 +61,15 @@
     {
         "defaults": 
         {
+            "backgroundImage": "C:\\Users\\tvy\\OneDrive - Cisco\\Pictures\\background_cats.jpeg",
+            "backgroundImageAlignment": "bottomRight",
+            "backgroundImageOpacity": 0.15,
+            "backgroundImageStretchMode": "fill",
             "font": 
             {
-                "face": "MesloLGM Nerd Font"
-            }
+                "face": "MesloLGS Nerd Font"
+            },
+            "useAcrylic": true
         },
         "list": 
         [
@@ -66,14 +86,20 @@
                 "name": "Command Prompt"
             },
             {
-                "guid": "{950911fa-0772-53c6-82b0-8a6d2de20ae1}",
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{960824c5-010e-5d1b-807a-2753058c3687}",
                 "hidden": false,
                 "name": "Developer Command Prompt for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "commandline": "pwsh -NoExit -Command \"&{Import-Module \"\"\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll\"\"\"; Enter-VsDevShell e7dea853 -SkipAutomaticLocation -DevCmdArguments \"\"\"-arch=x64 -host_arch=x64\"\"\"}\"",
-                "guid": "{203ea50d-d628-5cfd-a0d4-852369ce0c8d}",
+                "commandline": "pwsh.exe -NoExit -Command \"&{Import-Module \"\"\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll\"\"\"; Enter-VsDevShell 2b26aa90 -SkipAutomaticLocation -DevCmdArguments \"\"\"-arch=x64 -host_arch=x64\"\"\"}\"",
+                "guid": "{28320cee-08d4-5a4d-a697-64df76593dfd}",
                 "hidden": false,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
@@ -83,10 +109,16 @@
                 "hidden": false,
                 "name": "PowerShell",
                 "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
             }
         ]
     },
     "schemes": [],
     "themes": [],
-    "wordDelimiters": " ()\"'-,:;<>~!@#$%^&*|+=[]{}~?\u2502"
+    "wordDelimiters": "()\"',:;<>~!@#$%^&*|+=[]{}~?\u2502"
 }
