@@ -61,8 +61,7 @@
     {
         "defaults": 
         {
-            "backgroundImage": "C:\\Users\\tvy\\OneDrive - Cisco\\Pictures\\background_cats.jpeg",
-            "backgroundImageAlignment": "bottomRight",
+            "backgroundImage": "desktopWallpaper",
             "backgroundImageOpacity": 0.15,
             "backgroundImageStretchMode": "fill",
             "font": 
