@@ -62,6 +62,7 @@ if (Test-Path($ChocolateyProfile)) {
 
 del alias:cat -Force
 del alias:ls -Force
+del alias:rm -Force
 
 Set-Alias -Name cat -Value bat
 Set-Alias -Name ls -Value eza
@@ -94,3 +95,12 @@ function copy-current-directory {
 Set-Alias -Name cop -Value copy-current-directory
 
 Set-Alias -Name vim -Value nvim
+
+function Remove-Item-Recursively {
+    param (
+        [Parameter(ValueFromRemainingArguments = $true)]
+        [String[]] $Args
+    )
+    Remove-Item -Recurse -Force $Args
+}
+Set-Alias -Name rm -Value Remove-Item-Recursively
