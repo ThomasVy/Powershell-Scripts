@@ -2,6 +2,8 @@ oh-my-posh init pwsh --config "https://raw.githubusercontent.com/JanDeDobbeleer/
 
 #auto Autocompleteion
 Import-Module PSReadLine
+#Autocompletion for git
+Import-Module posh-git
 
 Set-PSReadLineOption -EditMode Emacs
 # Shows navigable menu of all options when hitting Tab
