@@ -74,6 +74,7 @@ function eza-ll {
     eza -alh $Args
 }
 Set-Alias -Name ll -Value eza-ll
+Set-Alias -Name l -Value eza-ll
 function eza-tree {
     param (
         [Parameter(ValueFromRemainingArguments = $true)]
