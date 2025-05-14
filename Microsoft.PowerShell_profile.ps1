@@ -71,7 +71,7 @@ function eza-ll {
         [Parameter(ValueFromRemainingArguments = $true)]
         [String[]] $Args
     )
-    eza -alh $Args
+    eza -alh --icons $Args
 }
 Set-Alias -Name ll -Value eza-ll
 Set-Alias -Name l -Value eza-ll
