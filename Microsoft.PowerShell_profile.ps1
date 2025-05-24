@@ -96,6 +96,7 @@ function copy-current-directory {
 Set-Alias -Name cop -Value copy-current-directory
 
 Set-Alias -Name vim -Value nvim
+Set-Alias -Name v -value nvim
 
 function Remove-Item-Recursively {
     param (
