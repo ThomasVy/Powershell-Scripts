@@ -63,6 +63,7 @@ if (Test-Path($ChocolateyProfile)) {
 del alias:cat -Force
 del alias:ls -Force
 del alias:rm -Force
+del alias:sl -Force
 
 Set-Alias -Name cat -Value bat
 Set-Alias -Name ls -Value eza
@@ -106,3 +107,24 @@ function Remove-Item-Recursively {
     Remove-Item -Recurse -Force $Args
 }
 Set-Alias -Name rm -Value Remove-Item-Recursively
+
+function Sllogin {
+    $AccountId = "355747651457"
+    $RoleName = "engineer"
+    # Run the 'sl aws session generate' command and capture the output
+    $Output = sl aws session generate --account-id $AccountId --role-name $RoleName
+
+    # Find the URL that matches the AWS sign-in pattern
+    $Url = $Output -match 'https://us-east-1.signin.aws.amazon.com/' | Out-String
+
+    if ($Url -eq $null -or $Url -eq "") {
+        # If no URL is found, output the original command's output
+        Write-Output $Output
+    } else {
+        # If a URL is found, open it in the default browser
+        Start-Process $Url
+    }
+}
+
+# Define an alias for the specific role and account
+Set-Alias -Name onprem-test-eng -Value Sllogin
