@@ -28,6 +28,9 @@ winget install fzf
 Write-Host -ForegroundColor Blue "install Windows Terminal"
 winget install --id Microsoft.WindowsTerminal -e
 
+Write-Host -ForegroundColor Blue "install Windows less"
+winget install jftuga.less
+
 Write-Host -ForegroundColor Blue "install Powershell 7"
 winget install --id Microsoft.PowerShell --source winget
 
