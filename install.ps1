@@ -40,6 +40,13 @@ Copy WindowsTerminalSettings.json "$env:USERPROFILE\\AppData\\Local\\Packages\Mi
 Write-Host -ForegroundColor Blue "install OhMyPosh"
 winget install JanDeDobbeleer.OhMyPosh -s winget
 
+
+Write-Host -ForegroundColor Blue "install Go"
+winget install GoLang.Go
+
+Write-Host -ForegroundColor Blue "installing nodejs"
+winget install OpenJS.NodeJS.LTS
+
 oh-my-posh font install meslo
 Write-Host -ForegroundColor Blue "Please set the terminal font to MesloLGS NF https://ohmyposh.dev/docs/installation/fonts#configuration"
 
