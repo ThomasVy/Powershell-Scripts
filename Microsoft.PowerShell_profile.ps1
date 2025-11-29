@@ -18,7 +18,7 @@ try {
 }
 catch {}
 
-Set-PSReadLineKeyHandler -Chord "Ctrl+ " -Function AcceptSuggestion
+Set-PSReadLineKeyHandler -Chord "Alt+l" -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
 
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
