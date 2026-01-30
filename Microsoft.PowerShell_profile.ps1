@@ -11,39 +11,14 @@ Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
-
-Set-PSReadLineOption -ShowToolTips
-try { 
-    Set-PSReadLineOption -PredictionSource History
-}
-catch {}
-
 Set-PSReadLineKeyHandler -Chord "Alt+l" -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
+Set-PSReadLineOption -ShowToolTips
+Set-PSReadLineOption -PredictionSource History
+# example command - use $Location with a different command:
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
-
-function Invoke-AmpRepositorySync {
-    param (
-        [Parameter(ValueFromRemainingArguments = $true)]
-        [String[]] $Args
-    )
-    python "C:\dev\fireamp-win\fireamp-win-connector-tools\WindowsDeveloperTools\AmpRepositorySync\AmpRepositorySync.py" $Args
-}
-
-Set-Alias ars Invoke-AmpRepositorySync
-
-function baf {
-    param($args)
-    python C:\dev\fireamp-win\fireamp-win-connector-tools\WindowsDeveloperTools\AmpBuilder\AmpBuilder.py $args
-}
-Set-Alias -Name ba -Value baf
-
-function gmockf {
-    param($args)
-    python "C:\dev\scripts\generator\GMockGenerator.py" -i $args
-}
-Set-Alias -Name gmock -Value gmockf
 
 function rdpf {
     az network bastion rdp --name "general-clean-bastion1" --resource-group "clean-infra" --target-resource-id "/subscriptions/cd684e53-2b0b-46de-a043-e7d942de9433/resourceGroups/amp-windows-dev/providers/Microsoft.Compute/virtualMachines/Thomas"
@@ -63,7 +38,6 @@ if (Test-Path($ChocolateyProfile)) {
 del alias:cat -Force
 del alias:ls -Force
 del alias:rm -Force
-del alias:sl -Force
 
 Set-Alias -Name cat -Value bat
 Set-Alias -Name ls -Value eza
@@ -84,12 +58,8 @@ function eza-tree {
     eza --tree $Args
 }
 Set-Alias -Name tree -Value eza-tree
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
-function admin-power { 
-    Start-Process -Verb RunAs wt.exe
-}
-Set-Alias -Name admin -Value admin-power
+Set-Alias -Name admin -Value "Start-Process -Verb RunAs wt.exe"
 function copy-current-directory {
     (pwd).Path | Set-Clipboard
     Write-Host "Copied current directory to clipboard"
@@ -97,7 +67,6 @@ function copy-current-directory {
 Set-Alias -Name cop -Value copy-current-directory
 
 Set-Alias -Name vim -Value nvim
-Set-Alias -Name v -value nvim
 
 function Remove-Item-Recursively {
     param (
@@ -107,25 +76,3 @@ function Remove-Item-Recursively {
     Remove-Item -Recurse -Force $Args
 }
 Set-Alias -Name rm -Value Remove-Item-Recursively
-
-function Sllogin {
-    $AccountId = "355747651457"
-    $RoleName = "engineer"
-    # Run the 'sl aws session generate' command and capture the output
-    $Output = sl aws session generate --account-id $AccountId --role-name $RoleName
-
-    # Find the URL that matches the AWS sign-in pattern
-    $Url = $Output -match 'https://us-east-1.signin.aws.amazon.com/' | Out-String
-
-    if ($Url -eq $null -or $Url -eq "") {
-        # If no URL is found, output the original command's output
-        Write-Output $Output
-    } else {
-        # If a URL is found, open it in the default browser
-        Start-Process $Url
-    }
-}
-# Define an alias for the specific role and account
-Set-Alias -Name onprem-test-eng -Value Sllogin
-
-
