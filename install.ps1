@@ -47,6 +47,9 @@ winget install GoLang.Go
 Write-Host -ForegroundColor Blue "installing nodejs"
 winget install OpenJS.NodeJS.LTS
 
+Write-Host -ForegroundColor Blue "installing opencode-ai"
+npm i -g opencode-ai@latest
+
 oh-my-posh font install meslo
 Write-Host -ForegroundColor Blue "Please set the terminal font to MesloLGS NF https://ohmyposh.dev/docs/installation/fonts#configuration"
 

@@ -15,8 +15,13 @@ Set-PSReadLineKeyHandler -Chord "Alt+l" -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
 Set-PSReadLineOption -ShowToolTips
 Set-PSReadLineOption -PredictionSource History
+# Set-PSReadLineOption -PredictionViewStyle ListView
+
+$commandOverride = [ScriptBlock] { param($Location) Set-Location $Location } 
 # example command - use $Location with a different command:
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r' -PSReadlineChordSetLocation 'Alt+c'
+
+Set-PsFzfOption -AltCCommand $commandOverride
 
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 
@@ -32,7 +37,7 @@ Set-Alias -Name rdp -Value rdpf
 # See https://ch0.co/tab-completion for details.
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
+    Import-Module "$ChocolateyProfile"
 }
 
 del alias:cat -Force
@@ -59,7 +64,10 @@ function eza-tree {
 }
 Set-Alias -Name tree -Value eza-tree
 
-Set-Alias -Name admin -Value "Start-Process -Verb RunAs wt.exe"
+function admin-run {
+    Start-Process -Verb RunAs wt.exe 
+}
+Set-Alias -Name admin -Value admin-run
 function copy-current-directory {
     (pwd).Path | Set-Clipboard
     Write-Host "Copied current directory to clipboard"
