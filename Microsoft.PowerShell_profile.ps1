@@ -15,7 +15,7 @@ Set-PSReadLineKeyHandler -Chord "Alt+l" -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
 Set-PSReadLineOption -ShowToolTips
 Set-PSReadLineOption -PredictionSource History
-# Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -PredictionViewStyle ListView
 
 $commandOverride = [ScriptBlock] { param($Location) Set-Location $Location } 
 # example command - use $Location with a different command:
