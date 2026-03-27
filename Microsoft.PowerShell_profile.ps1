@@ -14,9 +14,10 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord "Alt+l" -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
 Set-PSReadLineOption -ShowToolTips
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
-
+if ($Host.UI.SupportsVirtualTerminal) {
+    Set-PSReadLineOption -PredictionSource History
+    Set-PSReadLineOption -PredictionViewStyle ListView
+}
 $commandOverride = [ScriptBlock] { param($Location) Set-Location $Location } 
 # example command - use $Location with a different command:
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r' -PSReadlineChordSetLocation 'Alt+c'
@@ -84,3 +85,12 @@ function Remove-Item-Recursively {
     Remove-Item -Recurse -Force $Args
 }
 Set-Alias -Name rm -Value Remove-Item-Recursively
+
+function Copy-File {
+    param([string[]]$Path)
+    Add-Type -AssemblyName System.Windows.Forms
+    $files = [System.Collections.Specialized.StringCollection]::new()
+    foreach ($p in $Path) { $files.Add((Resolve-Path $p).Path) }
+    [System.Windows.Forms.Clipboard]::SetFileDropList($files)
+}
+Set-Alias -NAme cf -Value Copy-File
