@@ -26,21 +26,6 @@ Set-PsFzfOption -AltCCommand $commandOverride
 
 Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
 
-function rdpf {
-    az network bastion rdp --name "general-clean-bastion1" --resource-group "clean-infra" --target-resource-id "/subscriptions/cd684e53-2b0b-46de-a043-e7d942de9433/resourceGroups/amp-windows-dev/providers/Microsoft.Compute/virtualMachines/Thomas"
-}
-Set-Alias -Name rdp -Value rdpf
-
-# Import the Chocolatey Profile that contains the necessary code to enable
-# tab-completions to function for `choco`.
-# Be aware that if you are missing these lines from your profile, tab completion
-# for `choco` will not function.
-# See https://ch0.co/tab-completion for details.
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-    Import-Module "$ChocolateyProfile"
-}
-
 del alias:cat -Force
 del alias:ls -Force
 del alias:rm -Force
