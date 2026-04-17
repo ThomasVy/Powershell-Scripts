@@ -34,8 +34,8 @@ winget install jftuga.less
 Write-Host -ForegroundColor Blue "install Powershell 7"
 winget install --id Microsoft.PowerShell --source winget
 
-Write-Host -ForegroundColor Blue "Setting Window Terminal Settings"
-Copy WindowsTerminalSettings.json "$env:USERPROFILE\\AppData\\Local\\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+# Write-Host -ForegroundColor Blue "Setting Window Terminal Settings"
+# Copy WindowsTerminalSettings.json "$env:USERPROFILE\\AppData\\Local\\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
 Write-Host -ForegroundColor Blue "install OhMyPosh"
 winget install JanDeDobbeleer.OhMyPosh -s winget
